@@ -4,7 +4,7 @@ dotenv.config();
 const express = require('express')
 const app = express();  //calling express method
 // const port =5000
-const port = process.env.PORT
+const port = process.env.PORT  || 5000
 app.use(express.json())
 
 const createConnection = require("./db")         //here we accessing mongoDB method from ./db file and from here we calling that method to executes
