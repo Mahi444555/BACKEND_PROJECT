@@ -7,6 +7,18 @@ const app = express();  //calling express method
 const port = process.env.PORT  || 5000
 app.use(express.json())
 
+////////middleware
+app.use((req,res,next)=>{
+    res.setHeader("Access-Control-Allow-Origin","http://localhost:3000");
+    res.header(
+        "Access-Control-Allow-Headers",
+        "Origin, X-Requested-With, Content-Type, Accept"
+    );
+    next();
+})
+
+
+
 const createConnection = require("./db")         //here we accessing mongoDB method from ./db file and from here we calling that method to executes
 createConnection();
 
